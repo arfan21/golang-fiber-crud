@@ -1,0 +1,5 @@
+test.rest 
+docker-compose.yml
+tmp/
+.idea
+.env
