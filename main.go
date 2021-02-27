@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/arfan21/gofiber-tes/config"
-	"github.com/arfan21/gofiber-tes/controllers"
-	"github.com/arfan21/gofiber-tes/helpers"
+	"github.com/arfan21/golang-fiber-crud/config"
+	"github.com/arfan21/golang-fiber-crud/controllers/http/user"
+	"github.com/arfan21/golang-fiber-crud/helpers"
 	"github.com/gofiber/fiber/v2"
 )
 
@@ -16,7 +16,8 @@ func main() {
 		return c.JSON(helpers.Response(c, fiber.StatusOK, "success", "hello world tes", nil))
 	})
 
-	userCtrl := controllers.NewUserController(db)
+	userCtrl := user.NewUserController(db)
+
 	userCtrl.Routes(app)
 
 	app.Listen(":8000")

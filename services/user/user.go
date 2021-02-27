@@ -1,8 +1,8 @@
-package services
+package user
 
 import (
-	"github.com/arfan21/gofiber-tes/models"
-	"github.com/arfan21/gofiber-tes/repository"
+	"github.com/arfan21/golang-fiber-crud/models"
+	"github.com/arfan21/golang-fiber-crud/repository/mongo/user"
 	"golang.org/x/crypto/bcrypt"
 )
 
@@ -15,10 +15,10 @@ type UserService interface {
 }
 
 type userService struct {
-	repo repository.UserRepository
+	repo user.UserRepository
 }
 
-func NewUserService(repo repository.UserRepository) UserService {
+func NewUserService(repo user.UserRepository) UserService {
 	return &userService{repo}
 }
 

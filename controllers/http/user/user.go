@@ -1,13 +1,13 @@
-package controllers
+package user
 
 import (
 	"context"
-	"github.com/arfan21/gofiber-tes/services"
+	userRepo "github.com/arfan21/golang-fiber-crud/repository/mongo/user"
+	userService "github.com/arfan21/golang-fiber-crud/services/user"
 	"strings"
 
-	"github.com/arfan21/gofiber-tes/helpers"
-	"github.com/arfan21/gofiber-tes/models"
-	"github.com/arfan21/gofiber-tes/repository"
+	"github.com/arfan21/golang-fiber-crud/helpers"
+	"github.com/arfan21/golang-fiber-crud/models"
 	"github.com/gofiber/fiber/v2"
 	"go.mongodb.org/mongo-driver/mongo"
 )
@@ -17,12 +17,12 @@ type UserController interface {
 }
 
 type userController struct {
-	service services.UserService
+	service userService.UserService
 }
 
 func NewUserController(db *mongo.Database) UserController {
-	repo := repository.NewUserRepo(context.Background(), db)
-	service := services.NewUserService(repo)
+	repo := userRepo.NewUserRepo(context.Background(), db)
+	service := userService.NewUserService(repo)
 
 	return &userController{service}
 }

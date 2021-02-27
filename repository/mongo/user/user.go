@@ -1,8 +1,8 @@
-package repository
+package user
 
 import (
 	"context"
-	"github.com/arfan21/gofiber-tes/models"
+	"github.com/arfan21/golang-fiber-crud/models"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
